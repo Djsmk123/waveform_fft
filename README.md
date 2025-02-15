@@ -73,6 +73,18 @@ final service = AudioCaptureService(
 
 ## Example
 
+Here's a demo of the audio visualization in action:
+
+[![Audio Visualization Demo](https://img.youtube.com/vi/xs3dE7HB4GU/0.jpg)](https://youtube.com/shorts/xs3dE7HB4GU)
+
+The example above demonstrates:
+
+- Real-time audio capture from device microphone
+- FFT processing of audio data
+- Animated waveform visualization
+- Responsive UI with start/stop recording controls
+
+Check out the complete example code in the `/example` directory to see how to implement this in your app.
 
 ### Frequency Spectrum
 
