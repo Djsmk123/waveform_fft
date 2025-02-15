@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_audio_capture (1.1.4):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_audio_capture (from `.symlinks/plugins/flutter_audio_capture/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_audio_capture:
+    :path: ".symlinks/plugins/flutter_audio_capture/ios"
+
+SPEC CHECKSUMS:
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_audio_capture: e1681f0d73912d756ef02313e9505e8d19246867
+
+PODFILE CHECKSUM: 79656eaf34751be2490bb2ff485f137a0469c8bb
+
+COCOAPODS: 1.16.2
