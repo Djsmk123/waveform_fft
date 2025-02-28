@@ -9,6 +9,7 @@
 /// - Permission handling for microphone access
 ///
 /// See the README.md for more details on setup and customization options.
+library;
 
 import 'dart:ui';
 
