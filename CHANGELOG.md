@@ -7,3 +7,7 @@
   - Customizable waveform widget with animation support
   - Example app demonstrating core functionality
   - Comprehensive documentation and usage guide
+
+## 0.0.2
+
+* Random values for animatedValues when data is empty or not provided

@@ -1,6 +1,6 @@
 name: waveform_fft
 description: "A Flutter package for real-time audio visualization using FFT (Fast Fourier Transform). and audio capture using microphone data"
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/Djsmk123/waveform_fft
 
 environment:
