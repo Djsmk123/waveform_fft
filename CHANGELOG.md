@@ -11,3 +11,8 @@
 ## 0.0.2
 
 * Random values for animatedValues when data is empty or not provided
+
+## 0.0.3
+
+* Fixed Random going out of bounds
+
