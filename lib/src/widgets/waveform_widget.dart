@@ -44,7 +44,7 @@ class _WaveFormWidgetEqState extends State<WaveFormWidgetEq>
     animatedValues =
         widget.data.isNotEmpty
             ? widget.data.map((e) => e.value).toList()
-            : List.generate(30, (_) => _random.nextDouble() * 50 - 25);
+            : List.generate(30, (_) => _random.nextDouble());
 
     _controller = AnimationController(
       vsync: this,
@@ -59,7 +59,7 @@ class _WaveFormWidgetEqState extends State<WaveFormWidgetEq>
         animatedValues.add(
           widget.data.isNotEmpty
               ? widget.data[(timer.tick % widget.data.length)].value
-              : _random.nextDouble() * 50 - 25,
+              : _random.nextDouble(),
         );
       });
     });
