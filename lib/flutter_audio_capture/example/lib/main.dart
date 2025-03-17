@@ -32,13 +32,9 @@ class _MyAppState extends State<MyApp> {
     await _plugin.stop();
   }
 
-  void listener(dynamic obj) {
-    print(obj);
-  }
+  void listener(dynamic obj) {}
 
-  void onError(Object e) {
-    print(e);
-  }
+  void onError(Object e) {}
 
   @override
   Widget build(BuildContext context) {
