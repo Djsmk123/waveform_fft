@@ -3,7 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  flutter_audio_capture_v2
+  flutter_audio_capture
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

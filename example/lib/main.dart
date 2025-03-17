@@ -30,7 +30,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Waveform Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF6750A4), brightness: Brightness.dark),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF6750A4),
+          brightness: Brightness.dark,
+        ),
         useMaterial3: true,
       ),
       home: const WaveformPage(),
@@ -47,7 +50,8 @@ class WaveformPage extends StatefulWidget {
 }
 
 /// State for WaveformPage that manages audio capture and animation
-class _WaveformPageState extends State<WaveformPage> with SingleTickerProviderStateMixin {
+class _WaveformPageState extends State<WaveformPage>
+    with SingleTickerProviderStateMixin {
   late final Ticker _ticker;
   List<({FrequencySpectrum spectrum, double value})> data = [];
   List<({FrequencySpectrum spectrum, double value})> data2Animation = [];
@@ -84,14 +88,26 @@ class _WaveformPageState extends State<WaveformPage> with SingleTickerProviderSt
     final theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: theme.colorScheme.surface,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text('Audio Visualizer', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+        backgroundColor: theme.colorScheme.surface,
+        title: Text(
+          'Audio Visualizer',
+          style: TextStyle(
+            color: theme.colorScheme.onSurface,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         elevation: 0,
       ),
       body: Container(
-        decoration: BoxDecoration(color: Colors.white),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [theme.colorScheme.surface, theme.colorScheme.surface],
+          ),
+        ),
         child: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -100,27 +116,32 @@ class _WaveformPageState extends State<WaveformPage> with SingleTickerProviderSt
               children: [
                 Text(
                   'Visualize Your Sound',
-                  style: theme.textTheme.headlineMedium?.copyWith(color: Colors.black, fontWeight: FontWeight.bold),
+                  style: theme.textTheme.headlineMedium?.copyWith(
+                    color: theme.colorScheme.onSurface,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   'Start recording to see the magic happen',
-                  style: theme.textTheme.bodyLarge?.copyWith(color: Colors.black.withValues(alpha: 0.7)),
+                  style: theme.textTheme.bodyLarge?.copyWith(
+                    color: theme.colorScheme.onSurface.withValues(alpha: .7),
+                  ),
                 ),
                 const SizedBox(height: 48),
                 if (isRecording)
                   SizedBox(
-                    height: 40,
+                    height: 200,
                     width: MediaQuery.sizeOf(context).width,
-                    child: CustomWaveFormWidgetEq(
+                    child: WaveFormWidgetEq(
                       data: data2Animation,
-                      barWidth: 1.8,
-                      maxY: 30,
-                      minY: -30,
-                      barColor: Colors.red,
-                      barAlpha: 1,
-                      animationDuration: const Duration(milliseconds: 400),
-                      updateInterval: const Duration(milliseconds: 40),
+                      barWidth: 4,
+                      maxY: 80,
+                      minY: -80,
+                      barColor: theme.colorScheme.primary,
+                      barAlpha: 0.6,
+                      animationDuration: const Duration(milliseconds: 120),
+                      updateInterval: const Duration(milliseconds: 48),
                     ),
                   ),
                 const SizedBox(height: 48),
@@ -128,7 +149,7 @@ class _WaveformPageState extends State<WaveformPage> with SingleTickerProviderSt
                   onPressed: () {
                     isRecording = !isRecording;
                     if (isRecording) {
-                      _audioCaptureService.startCapture((data) async {
+                      _audioCaptureService.startCapture((data) {
                         setState(() {
                           this.data = data;
                         });
@@ -138,7 +159,12 @@ class _WaveformPageState extends State<WaveformPage> with SingleTickerProviderSt
                     }
                     setState(() {});
                   },
-                  style: FilledButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16)),
+                  style: FilledButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 32,
+                      vertical: 16,
+                    ),
+                  ),
                   icon: Icon(isRecording ? Icons.stop : Icons.mic),
                   label: Text(
                     isRecording ? 'Stop Recording' : 'Start Recording',

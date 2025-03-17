@@ -49,6 +49,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  equatable:
+    dependency: transitive
+    description:
+      name: equatable
+      sha256: "567c64b3cb4cf82397aac55f4f0cbd3ca20d77c6c03bedbc4ceaddc08904aef7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.7"
   fake_async:
     dependency: transitive
     description:
@@ -65,19 +73,27 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.0+1"
+  fl_chart:
+    dependency: transitive
+    description:
+      name: fl_chart
+      sha256: "5276944c6ffc975ae796569a826c38a62d2abcf264e26b88fa6f482e107f4237"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.70.2"
   flutter:
     dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_audio_capture_v2:
+  flutter_audio_capture:
     dependency: transitive
     description:
-      name: flutter_audio_capture_v2
-      sha256: "3c665168535fa24a32a4e0023004444631f0fcc9552b17806d1ce8162a2f9616"
+      name: flutter_audio_capture
+      sha256: "1c378458bfeb022fac5cc5c5e5631a377c00178b75ec5d5768cd84b24985d44f"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.1"
+    version: "1.1.8"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -230,7 +246,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.3"
+    version: "0.0.1"
 sdks:
   dart: ">=3.7.0 <4.0.0"
   flutter: ">=3.18.0-18.0.pre.54"
