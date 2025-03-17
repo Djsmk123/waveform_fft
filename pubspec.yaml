@@ -9,10 +9,9 @@ environment:
 
 dependencies:
   fftea: ^1.5.0+1
-  fl_chart: ^0.70.2
   flutter:
     sdk: flutter
-  flutter_audio_capture: ^1.1.8
+  flutter_audio_capture_v2: ^1.2.2
 
 dev_dependencies:
   flutter_test:

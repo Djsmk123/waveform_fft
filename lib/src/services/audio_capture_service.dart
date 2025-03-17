@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:fftea/fftea.dart';
-import 'package:flutter_audio_capture/flutter_audio_capture.dart';
 import 'package:waveform_fft/src/models/waveform_spectrum.dart';
 import 'package:waveform_fft/src/utils/contants.dart';
+import 'package:flutter_audio_capture_v2/flutter_audio_capture_v2.dart';
 
 /// Service responsible for capturing and analyzing audio input in real-time.
 ///
@@ -50,33 +50,21 @@ class AudioCaptureService {
   ///
   /// [onData] callback is called with frequency analysis results for each audio buffer.
   /// Each result contains the frequency spectrum and its corresponding magnitude value.
-  Future<void> startCapture(
-    void Function(List<({FrequencySpectrum spectrum, double value})> data)
-    onData,
-  ) async {
+  Future<void> startCapture(void Function(List<({FrequencySpectrum spectrum, double value})> data) onData) async {
     await _isInitialized.future;
 
     _flutterAudioCapture.start(
       (Float32List buffer) {
         final fft = FFT(buffer.length);
         final frequencies = fft.realFft(buffer);
-        final magnitudes =
-            frequencies.discardConjugates().magnitudes().toList();
+        final magnitudes = frequencies.discardConjugates().magnitudes().toList();
 
         final frequencyValues =
             _frequencySpectrum.map((spectrum) {
-              final minIndex = fft.indexOfFrequency(
-                spectrum.min.toDouble(),
-                sampleRate.toDouble(),
-              );
-              final maxIndex = fft.indexOfFrequency(
-                spectrum.max.toDouble(),
-                sampleRate.toDouble(),
-              );
+              final minIndex = fft.indexOfFrequency(spectrum.min.toDouble(), sampleRate.toDouble());
+              final maxIndex = fft.indexOfFrequency(spectrum.max.toDouble(), sampleRate.toDouble());
 
-              final value = magnitudes
-                  .sublist(minIndex.floor(), maxIndex.ceil())
-                  .reduce((a, b) => a + b);
+              final value = magnitudes.sublist(minIndex.floor(), maxIndex.ceil()).reduce((a, b) => a + b);
 
               return (spectrum: spectrum, value: value);
             }).toList();
