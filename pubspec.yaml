@@ -12,7 +12,8 @@ dependencies:
   fl_chart: ^0.70.2
   flutter:
     sdk: flutter
-  flutter_audio_capture: ^1.1.8
+
+
 
 dev_dependencies:
   flutter_test:
