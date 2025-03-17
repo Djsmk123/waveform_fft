@@ -11,7 +11,7 @@ dependencies:
   fftea: ^1.5.0+1
   flutter:
     sdk: flutter
-  flutter_audio_capture_v2: ^1.1.9
+  flutter_audio_capture_v2: ^1.2.0
 
 
 
