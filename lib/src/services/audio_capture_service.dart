@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:fftea/fftea.dart';
-import 'package:waveform_fft/flutter_audio_capture/lib/flutter_audio_capture.dart';
 import 'package:waveform_fft/src/models/waveform_spectrum.dart';
 import 'package:waveform_fft/src/utils/contants.dart';
+import 'package:flutter_audio_capture_v2/flutter_audio_capture_v2.dart';
 
 /// Service responsible for capturing and analyzing audio input in real-time.
 ///
